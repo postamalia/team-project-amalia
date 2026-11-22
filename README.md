@@ -107,7 +107,11 @@ Attributes: username, documents created, documents shared with them
 
 **API Name:**
 
-**Documentation:** [Link]
+Spell Check API
+
+**Documentation:** 
+
+https://api-ninjas.com/api/spellcheck
 
 **How it is
  
