@@ -10,8 +10,8 @@ import java.util.List;
 public class User {
 
     private final String name;
-    private List<Document> docsCreated = new ArrayList<>();
-    private List<Document> docsAccessed = new ArrayList<>();
+    private List<Document> documentsCreated = new ArrayList<>();
+    private List<Document> documentsAccessed = new ArrayList<>();
 
     /**
      * Creates a new user with the given non-empty name.
@@ -25,10 +25,23 @@ public class User {
         this.name = name;
     }
 
-    public User(String name, List<Document> docsCreated, List<Document> docsAccessed) {
+    /**
+     * Creates a new user with the given non-empty name, list of documents created, and
+     * list of documents accessed.
+     * @param name the username
+     * @param documentsCreated the list of documents created
+     * @param documentsAccessed the list of documents accessed
+     * @throws IllegalArgumentException if the name is empty
+     */
+    public User(String name, List<Document> documentsCreated, List<Document> documentsAccessed) {
         this(name);
-        this.docsCreated = docsCreated;
-        this.docsAccessed = docsAccessed;
+        this.documentsCreated = documentsCreated;
+        this.documentsAccessed = documentsAccessed;
+        for (Document documentAccessed : documentsAccessed) {
+            if (!documentAccessed.getAccessedBy().contains(this)) {
+                documentAccessed.addAccessedBy(this);
+            }
+        }
     }
 
     public String getName() {
@@ -39,8 +52,19 @@ public class User {
 
     public List<Document> getDocumentsAccessed() { return docsAccessed; }
 
-    public void addDocumentCreated(Document doc) { docsCreated.add(doc); }
+    public void addDocumentCreated(Document document) {
+        if (!documentsCreated.contains(document)) {
+            documentsCreated.add(document);
+        }
+    }
 
-    public void addDocumentAccessed(Document doc) { docsAccessed.add(doc); }
+    public void addDocumentAccessed(Document document) {
+        if (!documentsAccessed.contains(document)) {
+            documentsAccessed.add(document);
+        }
+        if (!document.getAccessedBy().contains(this)) {
+            document.addAccessedBy(this);
+        }
+    }
 
 }
