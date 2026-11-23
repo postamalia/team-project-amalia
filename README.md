@@ -117,6 +117,8 @@ https://api-ninjas.com/api/spellcheck
  
 used in the program:**
 
+The program requests spelling corrections from this API to fulfill its spellcheck use case.
+
 ---
 
 ## Design Diagrams
