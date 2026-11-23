@@ -31,9 +31,13 @@ at the end of the term.
 
 ## Project Description
 
-### Project Domain
+A simple text editor.
 
-[Project description]
+Users create a profile to distinguish their entries. Entries can be saved and shared between users. Each user may access their own documents and documents shared with them.
+
+Spellcheck and a variety of fonts are available.
+
+### Project Domain
 
 ---
 
@@ -87,7 +91,7 @@ Share a document with another user.
 
 | Zila | Sharing documents |
 
-| Annabel | Stylistic edits |
+| Annabel | Stylistic edits and fonts via API |
 
 ---
 
@@ -105,7 +109,7 @@ Attributes: username, documents created, documents shared with them
 
 ## API Usage
 
-**API Name:**
+**API 1 Name:**
 
 Spell Check API
 
@@ -115,7 +119,13 @@ https://api-ninjas.com/api/spellcheck
 
 **How it is used in the program:** 
 
-The program requests spelling corrections from this API to fulfill its spellcheck use case.
+The program requests spelling corrections from this API to fulfill its spellcheck offering.
+
+**API 2 Name:**
+
+**Documentation:** 
+
+**How it is used in the program:** 
 
 ---
 
