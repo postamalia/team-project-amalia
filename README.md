@@ -113,9 +113,7 @@ Spell Check API
 
 https://api-ninjas.com/api/spellcheck
 
-**How it is
- 
-used in the program:**
+**How it is used in the program:** 
 
 The program requests spelling corrections from this API to fulfill its spellcheck use case.
 
