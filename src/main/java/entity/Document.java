@@ -52,12 +52,6 @@ public class Document {
         }
     }
 
-    public Document(String name, User creator, List<User> accessedBy, String contents) {
-        this(name, creator);
-        this.accessedBy = accessedBy;
-        this.contents = contents;
-    }
-
     public String getName() { return name; }
 
     public User getCreator() { return creator; }
