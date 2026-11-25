@@ -4,6 +4,7 @@ import entity.Document;
 import entity.User;
 import use_case.create_document.CreationDataAccessInterface;
 import use_case.save_document.SavingDataAccessInterface;
+import use_case.open_document.OpeningDataAccessInterface;
 
 import java.io.*;
 import java.util.*;
@@ -11,7 +12,8 @@ import java.util.*;
 /**
  * DAO for document data implemented using a File to persist the data.
  */
-public class DocumentDataAccess implements CreationDataAccessInterface, SavingDataAccessInterface {
+public class DocumentDataAccess implements CreationDataAccessInterface, SavingDataAccessInterface,
+        OpeningDataAccessInterface {
 
     private static final String HEADER = "name,createdBy,accessedBy,contents";
 
@@ -65,7 +67,7 @@ public class DocumentDataAccess implements CreationDataAccessInterface, SavingDa
                 final String[] accessedByCol = accessedByRow.split(";");
                 final List<User> accessedBy = new ArrayList<>();
                 for (String accessedByUsername : accessedByCol) {
-                        accessedBy.add(userDataAccess.get(String.valueOf(accessedByUsername)));
+                    accessedBy.add(userDataAccess.get(String.valueOf(accessedByUsername)));
                 }
 
                 final String contents = String.valueOf(col[headers.get("contents")]);

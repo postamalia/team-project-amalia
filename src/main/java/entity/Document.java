@@ -12,6 +12,7 @@ public class Document {
     private final String name;
     private final User creator;
     private List<User> accessedBy = new ArrayList<>();
+    private List<TextRun> runs = new ArrayList<>();
     private String contents = ""; // edit contents type later if needed
 
     /**
@@ -52,6 +53,15 @@ public class Document {
         }
     }
 
+    public Document(String name, User creator, List<User> accessedBy, String contents, List<TextRun> runs) {
+        this(name, creator, accessedBy, contents);
+        this.runs = new ArrayList<>(runs);
+    }
+
+    public Document(String contents, List<TextRun> runs) {
+        this("Untitled", null, new ArrayList<>(), contents, runs);
+    }
+
     public String getName() { return name; }
 
     public User getCreator() { return creator; }
@@ -60,9 +70,11 @@ public class Document {
 
     public List<User> getAccessedBy() { return accessedBy; }
 
+    public List<TextRun> getRuns() { return runs; }
+
     public void addAccessedBy(User user) {
         accessedBy.add(user);
-        if (!user.getDocumentsAccessed().contains(this)) {
+        if (creator != null && !user.getDocumentsAccessed().contains(this)) {
             user.addDocumentAccessed(this);
         }
     }
